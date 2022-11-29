@@ -56,3 +56,43 @@
     font-size: 20px;
     background-color: white;
 }
+
+.input input{
+    float: left;
+}
+
+img {
+    width: 45px;
+    height: auto;
+}
+
+#normal {
+    background: url(images/pencil-icon.png) no-repeat center;
+    background-size: 45px 45px;
+}
+
+#rainbow {
+    background: url(images/Rainbow.png) no-repeat center;
+    background-size: 70px 70px;
+}
+
+#eraser {
+    background: url(images/eraser-icon.png) no-repeat center;
+    background-size: 45px 45px;
+    
+
+}
+
+#size {
+    background: url(images/index.png) no-repeat center;
+    background-size: 40px 40px;
+}
+
+#clear-all {
+    background: url(images/clear-all.png) no-repeat center;
+    background-size: 70px 70px;
+}
+
+.normal-active #normal, .rainbow-active #rainbow, .eraser-active #eraser {
+    background-color: rgba(132, 189, 242, 0.8);
+}
