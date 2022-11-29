@@ -10,6 +10,7 @@ const gridState = document.getElementById("grid-toggle");
 const transparentBG = document.getElementById("toggle-bg-color");
 const pickColor = document.getElementById("pick-a-color");
 const paintStyle = document.getElementById("paint-style");
+const form = document.getElementById("form");
 let currentColor = '#000000'
 let currentMode = 'normal';
 let currentPaintStyle = 'hover';
@@ -91,15 +92,27 @@ eraser.addEventListener('click', function() {
 })
 
 size.addEventListener('click', function() {
-    let num = prompt("How many cells wide? (Limit 100)");
-    while(num > 100){
-        num = prompt("The limit is 100. Please try again.\nHow many cells wide?");
+    document.getElementById("aoe-popup").classList.add('display-popup');
+    document.getElementById('popup-text').innerText = "How many cells wide?\n(Limit 100)"
+})
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    let num = document.getElementById('resize').value;
+    if(num > 100){
+        document.getElementById('popup-text').innerText = "The limit is 100.\nPlease try again.\nHow many cells wide?";
+        return;
     }
+    document.getElementById("aoe-popup").classList.remove('display-popup');
     while (canvas.firstChild) {
         canvas.removeChild(canvas.firstChild);
       }
     canvas.style.gridTemplateColumns = `repeat(${num},auto)`;
     addDivs(num);
+})
+
+document.getElementById("close-popup").addEventListener('click', function() {
+    document.getElementById("aoe-popup").classList.remove('display-popup');
 })
 
 clearAll.addEventListener('click', function() {

@@ -154,3 +154,53 @@ a:hover, a:visited, a:link, a:active {
     text-decoration: none;
     color:rgb(83, 59, 121);
 }
+
+.popup{
+    width: 400px;
+    height: 160px;
+    background-color:#a7a7e9;
+    position: absolute;
+    text-align: center;
+    align-content: center;
+    border: 1px solid;
+    border-radius: 20px;
+    font-size: 24px;
+    padding: 20px;
+}
+
+#close-popup {
+    background-image: url(images/CloseWindow.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    border: none;
+    display: block;
+    float: right;
+}
+
+#close-popup:hover{
+    cursor: pointer;
+}
+
+#modal-overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.display-popup #modal-overlay{
+    visibility: visible;
+}
+
+.display-popup #wrapper{
+    filter: blur(3px);
+}

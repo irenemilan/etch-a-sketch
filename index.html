@@ -14,39 +14,52 @@
     <div id="logo">
         <img id="logo-img" src="images/paint-logo.png"><h1>Paint By Pixel</h1>
     </div>
-    <div id="wrapper">
-        <div class="left">
-            <div class="tools">
-                <div id="tool-header">Tools</div>
-                <div class="dropdown">
-                    <label for="paint-style"></label>
-                    <select name="paint-style" id="paint-style" title="Paint Style">
-                        <option value="hover" selected>Hover</option>
-                        <option value="hold">Hold</option>
-                        <option value="click">Click</option>
-                    </select>
-                </div>
-                <button id="normal" title="Pencil"></button>
-                <button id="rainbow" title="Rainbow Colors"></button>
-                <button id="eraser" title="Eraser"></button>
-                <button id="size" title="Change Size"></button>
-                <button id="clear-all" title="Clear All"></button>
-                <div class="input-grid">
-                    <input type="checkbox" id="grid-toggle" name="grid-toggle" value="grid-toggle">
-                    <label for="grid-toggle">Toggle Grid</label>
-                </div>
-                <div class="input-bg-color">
-                    <input type="checkbox" id="toggle-bg-color" name="toggle-bg-color" value="toggle-bg-color">
-                    <label for="toggle-bg-color">Transparent BG</label>
-                </div>
-                <div class="color-picker">
-                    <input type="color" id="pick-a-color" name="pick-a-color"
-                    value='#000000' title="Pick A Color">
-                <label for="pick-a-color"></label>
+    <div id="aoe-popup">
+        <div id="wrapper">
+            <div class="left">
+                <div class="tools">
+                    <div id="tool-header">Tools</div>
+                    <div class="dropdown">
+                        <label for="paint-style"></label>
+                        <select name="paint-style" id="paint-style" title="Paint Style">
+                            <option value="hover" selected>Hover</option>
+                            <option value="hold">Hold</option>
+                            <option value="click">Click</option>
+                        </select>
+                    </div>
+                    <button id="normal" title="Pencil"></button>
+                    <button id="rainbow" title="Rainbow Colors"></button>
+                    <button id="eraser" title="Eraser"></button>
+                    <button id="size" title="Change Size"></button>
+                    <button id="clear-all" title="Clear All"></button>
+                    <div class="input-grid">
+                        <input type="checkbox" id="grid-toggle" name="grid-toggle" value="grid-toggle">
+                        <label for="grid-toggle">Toggle Grid</label>
+                    </div>
+                    <div class="input-bg-color">
+                        <input type="checkbox" id="toggle-bg-color" name="toggle-bg-color" value="toggle-bg-color">
+                        <label for="toggle-bg-color">Transparent BG</label>
+                    </div>
+                    <div class="color-picker">
+                        <input type="color" id="pick-a-color" name="pick-a-color"
+                        value='#000000' title="Pick A Color">
+                    <label for="pick-a-color"></label>
+                    </div>
                 </div>
             </div>
+            <div id="canvas" class="grid-on">  
+            </div>
         </div>
-        <div id="canvas" class="grid-on">
+        <div id="modal-overlay">
+            <div class="popup">
+                <button id="close-popup"></button>
+                <div id="popup-text"></div>
+                <form id="form">
+                    <label for="resize"></label>
+                    <input type="text" id="resize" name="resize" required>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
         </div>
     </div>
     <footer>
