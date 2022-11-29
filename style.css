@@ -132,7 +132,7 @@ img {
 }
 
 .normal-active #normal, .rainbow-active #rainbow, .eraser-active #eraser {
-    background-color: rgba(132, 189, 242, 0.8);
+    background-color:rgba(132, 94, 194,0.7);
 }
 
 #pick-a-color {
