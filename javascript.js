@@ -126,3 +126,7 @@ function addDivs(num){
     }
     canvas.appendChild(fragment);
 }
+
+pickColor.value = currentColor;
+addDivs(16);
+setMode('normal');
