@@ -18,3 +18,20 @@ let hold = false;
 function generateRandomColor(){
     return'#'+Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
 }
+
+function paint(target){
+    if(target.classList.contains("grid-item")){
+        let color = '';
+        switch(currentMode){
+            case 'rainbow':
+                color = generateRandomColor();
+                break;
+            case 'eraser':
+                color = '';
+                break;
+            default:
+                color = currentColor;
+        }
+        target.style.backgroundColor = color;
+    }
+}
