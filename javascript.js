@@ -83,3 +83,7 @@ pencil.addEventListener('click', function() {
 rainbowColor.addEventListener('click', function() {
     setMode('rainbow');
 })
+
+eraser.addEventListener('click', function() {
+    setMode('eraser');
+})
