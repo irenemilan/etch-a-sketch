@@ -87,3 +87,15 @@ rainbowColor.addEventListener('click', function() {
 eraser.addEventListener('click', function() {
     setMode('eraser');
 })
+
+size.addEventListener('click', function() {
+    let num = prompt("How many cells wide? (Limit 100)");
+    while(num > 100){
+        num = prompt("The limit is 100. Please try again.\nHow many cells wide?");
+    }
+    while (canvas.firstChild) {
+        canvas.removeChild(canvas.firstChild);
+      }
+    canvas.style.gridTemplateColumns = `repeat(${num},auto)`;
+    addDivs(num);
+})
