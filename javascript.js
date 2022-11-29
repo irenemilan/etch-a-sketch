@@ -99,3 +99,16 @@ size.addEventListener('click', function() {
     canvas.style.gridTemplateColumns = `repeat(${num},auto)`;
     addDivs(num);
 })
+
+clearAll.addEventListener('click', function() {
+    let remove = document.querySelectorAll(".grid-item");
+    for(const e of remove){
+        e.style.backgroundColor = '';
+    }
+})
+
+gridState.addEventListener('change', function() {
+    gridOn = !gridOn;
+    canvas.classList.toggle('grid-on', gridOn);
+
+})
