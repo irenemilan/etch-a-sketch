@@ -75,3 +75,11 @@ canvas.addEventListener('click', e => {
         paint(target);
     }
 })
+
+pencil.addEventListener('click', function() {
+    setMode('normal');
+})
+
+rainbowColor.addEventListener('click', function() {
+    setMode('rainbow');
+})
