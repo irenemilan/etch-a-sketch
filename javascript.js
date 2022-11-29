@@ -112,3 +112,7 @@ gridState.addEventListener('change', function() {
     canvas.classList.toggle('grid-on', gridOn);
 
 })
+
+pickColor.addEventListener('change', e => {
+    currentColor = e.target.value;
+})
