@@ -1,16 +1,6 @@
 const wrapper = document.getElementById("wrapper");
 const canvas = document.getElementById("canvas");
-const fragment = document.createDocumentFragment();
-const clearAll = document.getElementById("clear-all");
-const pencil = document.getElementById("normal");
-const eraser = document.getElementById("eraser");
-const size = document.getElementById("size");
-const rainbowColor = document.getElementById("rainbow");
-const gridState = document.getElementById("grid-toggle");
-const transparentBG = document.getElementById("toggle-bg-color");
 const pickColor = document.getElementById("pick-a-color");
-const paintStyle = document.getElementById("paint-style");
-const form = document.getElementById("form");
 let currentColor = '#000000'
 let currentMode = 'normal';
 let currentPaintStyle = 'hover';
@@ -47,7 +37,7 @@ function setMode(mode){
     wrapper.classList.add(`${mode}-active`);
 }
 
-paintStyle.addEventListener('change', e=> {
+document.getElementById("paint-style").addEventListener('change', e=> {
     currentPaintStyle = e.target.value;
 })
 
@@ -79,24 +69,24 @@ canvas.addEventListener('click', e => {
     }
 })
 
-pencil.addEventListener('click', function() {
+document.getElementById("normal").addEventListener('click', function() {
     setMode('normal');
 })
 
-rainbowColor.addEventListener('click', function() {
+document.getElementById("rainbow").addEventListener('click', function() {
     setMode('rainbow');
 })
 
-eraser.addEventListener('click', function() {
+document.getElementById("eraser").addEventListener('click', function() {
     setMode('eraser');
 })
 
-size.addEventListener('click', function() {
+document.getElementById("size").addEventListener('click', function() {
     document.getElementById("aoe-popup").classList.add('display-popup');
     document.getElementById('popup-text').innerText = "How many cells wide?\n(Limit 100)"
 })
 
-form.addEventListener('submit', e => {
+document.getElementById("form").addEventListener('submit', e => {
     e.preventDefault();
     let num = document.getElementById('resize').value;
     if(num > 100){
@@ -115,20 +105,20 @@ document.getElementById("close-popup").addEventListener('click', function() {
     document.getElementById("aoe-popup").classList.remove('display-popup');
 })
 
-clearAll.addEventListener('click', function() {
+document.getElementById("clear-all").addEventListener('click', function() {
     let remove = document.querySelectorAll(".grid-item");
     for(const e of remove){
         e.style.backgroundColor = '';
     }
 })
 
-gridState.addEventListener('change', function() {
+document.getElementById("grid-toggle").addEventListener('change', function() {
     gridOn = !gridOn;
     canvas.classList.toggle('grid-on', gridOn);
 
 })
 
-transparentBG.addEventListener('change', function() {
+document.getElementById("toggle-bg-color").addEventListener('change', function() {
     transparencyActive = !transparencyActive;
     canvas.classList.toggle('transparency-active', transparencyActive);
 
@@ -139,6 +129,7 @@ pickColor.addEventListener('change', e => {
 })
 
 function addDivs(num){
+    let fragment = document.createDocumentFragment();
     let numOfCells = num * num;
     for(let i = 1; i <= numOfCells; i++){
         let cellToBeAdded = document.createElement('div');
