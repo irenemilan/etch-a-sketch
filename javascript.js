@@ -116,3 +116,13 @@ gridState.addEventListener('change', function() {
 pickColor.addEventListener('change', e => {
     currentColor = e.target.value;
 })
+
+function addDivs(num){
+    let numOfCells = num * num;
+    for(let i = 1; i <= numOfCells; i++){
+        let cellToBeAdded = document.createElement('div');
+        cellToBeAdded.classList.add("grid-item");
+        fragment.appendChild(cellToBeAdded);
+    }
+    canvas.appendChild(fragment);
+}
