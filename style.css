@@ -1,3 +1,25 @@
 .grid-item:hover {
     background-color: rgb(133, 132, 132);
 }
+
+#canvas {
+    display: grid;
+    grid-template-columns: repeat(16, auto);
+    width: 600px;
+    height: 600px;
+    margin-top: 100px;
+    margin-right: 150px;
+    margin-left: -200px;
+}
+
+.normal-active #canvas{
+    cursor: url(images/pencil.png) 0 31, auto;
+}
+
+.rainbow-active #canvas{
+    cursor: url(images/rainbow2.png) 14 14, auto;
+}
+
+.eraser-active #canvas{
+    cursor: url(images/eraser.png) 0 31, auto;
+}
