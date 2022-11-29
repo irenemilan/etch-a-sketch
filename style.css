@@ -15,7 +15,7 @@ html {
     margin-top: 100px;
     margin-right: 150px;
     margin-left: -200px;
-    box-shadow: 0.2em 0.2em 0.5em rgba(132, 94, 194,0.7);
+    box-shadow: 0.4em 0.2em 0.8em rgba(132, 94, 194,0.7);
     background-color: white;
 }
 
@@ -35,26 +35,43 @@ html {
 border: .5px solid rgba(0, 0, 0, 0.8);
 }
 
+#canvas.transparency-active {
+    background-color: transparent;
+}
+
 #wrapper {
     display: flex;
     justify-content: space-around;
 }
 
 .tools {
+    display: flex;
+    flex-direction: column;
     border: 1px solid;
     margin-left: 379px;
     margin-top: 100px;
-    padding-top: 20px;
     border-radius: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-shadow: 0.2em 0.2em 0.5em rgba(132, 94, 194,0.7);
-    background-color: white;
+    padding: 20px;
+    box-shadow: 0.4em 0.2em 0.8em rgba(132, 94, 194,0.7);
 }
 
-.tools * {
-    display: block;
+.dropdown {
+    margin: 0;
+}
+
+#tool-header {
+    background-color: #a7a7e9;
+    margin-top: -33px;
+    padding-left: 8px;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.tools > * {
+    margin-bottom: 10px;
+    flex-direction: initial;
 }
 
 .tools button, #paint-style {
@@ -64,9 +81,12 @@ border: .5px solid rgba(0, 0, 0, 0.8);
     text-align: center;
     font-size: 20px;
     background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
-.input input{
+.input-grid input{
     float: left;
 }
 
@@ -76,30 +96,23 @@ img {
 }
 
 #normal {
-    background: url(images/pencil-icon.png) no-repeat center;
-    background-size: 45px 45px;
+    background-image: url(images/pencil-icon.png);
 }
 
 #rainbow {
-    background: url(images/Rainbow.png) no-repeat center;
-    background-size: 70px 70px;
+    background-image: url(images/Rainbow.png);
 }
 
 #eraser {
-    background: url(images/eraser-icon.png) no-repeat center;
-    background-size: 45px 45px;
-    
-
+    background-image: url(images/eraser-icon.png);
 }
 
 #size {
-    background: url(images/resize.png) no-repeat center;
-    background-size: 40px 40px;
+    background-image: url(images/resize.png);
 }
 
 #clear-all {
-    background: url(images/clear-all.png) no-repeat center;
-    background-size: 70px 70px;
+    background-image: url(images/clear-all.png);
 }
 
 .normal-active #normal, .rainbow-active #rainbow, .eraser-active #eraser {
@@ -107,11 +120,19 @@ img {
 }
 
 #pick-a-color {
+    display: block;
     margin-left: auto;
     margin-right: auto;
-  }
+    margin-bottom: 0;
+}
 
-#credits {
+footer {
     text-align: center;
-    padding: 20px
+    padding: 20px;
+    font-size: 20px;
+}
+
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+    color:black
 }

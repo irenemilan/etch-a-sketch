@@ -7,12 +7,14 @@ const eraser = document.getElementById("eraser");
 const size = document.getElementById("size");
 const rainbowColor = document.getElementById("rainbow");
 const gridState = document.getElementById("grid-toggle");
+const transparentBG = document.getElementById("toggle-bg-color");
 const pickColor = document.getElementById("pick-a-color");
 const paintStyle = document.getElementById("paint-style");
 let currentColor = '#000000'
 let currentMode = 'normal';
 let currentPaintStyle = 'hover';
 let gridOn = true;
+let transparencyActive = false;
 let hold = false;
 
 function generateRandomColor(){
@@ -110,6 +112,12 @@ clearAll.addEventListener('click', function() {
 gridState.addEventListener('change', function() {
     gridOn = !gridOn;
     canvas.classList.toggle('grid-on', gridOn);
+
+})
+
+transparentBG.addEventListener('change', function() {
+    transparencyActive = !transparencyActive;
+    canvas.classList.toggle('transparency-active', transparencyActive);
 
 })
 

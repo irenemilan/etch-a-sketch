@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a href="https://github.com/irenemilan/etch-a-sketch"><img src="images/github-logo.png"></a>
     <div id="wrapper">
         <div class="left">
             <div class="tools">
+                <div id="tool-header">Tools</div>
                 <div class="dropdown">
                     <label for="paint-style"></label>
                     <select name="paint-style" id="paint-style" title="Paint Style">
@@ -25,9 +27,13 @@
                 <button id="eraser" title="Eraser"></button>
                 <button id="size" title="Change Size"></button>
                 <button id="clear-all" title="Clear All"></button>
-                <div class="input">
+                <div class="input-grid">
                     <input type="checkbox" id="grid-toggle" name="grid-toggle" value="grid-toggle">
                     <label for="grid-toggle">Toggle Grid</label>
+                </div>
+                <div class="input-bg-color">
+                    <input type="checkbox" id="toggle-bg-color" name="toggle-bg-color" value="toggle-bg-color">
+                    <label for="toggle-bg-color">Transparent BG</label>
                 </div>
                 <div class="color-picker">
                     <input type="color" id="pick-a-color" name="pick-a-color"
@@ -39,10 +45,10 @@
         <div id="canvas" class="grid-on">
         </div>
     </div>
-    <div id="credits">
+    <footer>
         Created by <a href="https://github.com/irenemilan/etch-a-sketch">Irene</a>
          for <a href="https://www.theodinproject.com/">The Odin Project</a>
-    </div>
+    </footer>
     <script src="javascript.js"></script>
 </body>
 </html>
