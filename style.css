@@ -25,9 +25,9 @@
 }
 
 .grid-on .grid-item{
-    border: .5px solid rgba(0, 0, 0, 0.8);
-    }
-    
+border: .5px solid rgba(0, 0, 0, 0.8);
+}
+
 #wrapper {
     display: flex;
     justify-content: space-around;
@@ -96,3 +96,8 @@ img {
 .normal-active #normal, .rainbow-active #rainbow, .eraser-active #eraser {
     background-color: rgba(132, 189, 242, 0.8);
 }
+
+#pick-a-color {
+    margin-left: auto;
+    margin-right: auto;
+  }
