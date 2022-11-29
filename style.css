@@ -23,3 +23,12 @@
 .eraser-active #canvas{
     cursor: url(images/eraser.png) 0 31, auto;
 }
+
+.grid-on .grid-item{
+    border: .5px solid rgba(0, 0, 0, 0.8);
+    }
+    
+#wrapper {
+    display: flex;
+    justify-content: space-around;
+}
