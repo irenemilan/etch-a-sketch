@@ -35,3 +35,11 @@ function paint(target){
         target.style.backgroundColor = color;
     }
 }
+
+function setMode(mode){
+    if(currentMode != mode){
+        wrapper.classList.remove(`${currentMode}-active`);
+    }
+    currentMode = mode;
+    wrapper.classList.add(`${mode}-active`);
+}
