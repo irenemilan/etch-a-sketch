@@ -43,3 +43,35 @@ function setMode(mode){
     currentMode = mode;
     wrapper.classList.add(`${mode}-active`);
 }
+
+paintStyle.addEventListener('change', e=> {
+    currentPaintStyle = e.target.value;
+})
+
+canvas.addEventListener('mousedown', function(e) {
+    e.preventDefault();
+    hold = true;
+})
+
+document.addEventListener('mouseup', function(){
+    hold = false;
+})
+
+canvas.addEventListener('mouseover', e => {
+    let target = e.target;
+    if(currentPaintStyle === "hover"){
+        paint(target);
+    }
+    else if(currentPaintStyle === "hold"){
+        if(hold){
+            paint(target);
+        }
+    }
+})
+
+canvas.addEventListener('click', e => {
+    if(currentPaintStyle === 'click') {
+        let target = e.target;
+        paint(target);
+    }
+})
