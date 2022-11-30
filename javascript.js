@@ -134,13 +134,8 @@ document.getElementById("size").addEventListener('click', function() {
 document.getElementById("form").addEventListener('submit', e => {
     e.preventDefault();
     let num = document.getElementById('resize').value;
-    let check = (num - Math.floor(num)) !== 0;
-    if(num > 100){
-        document.getElementById('popup-text').innerText = "The limit is 100.\nPlease try again.\nHow many cells wide?";
-        return;
-    }
-    else if(check){
-        document.getElementById('popup-text').innerText = "Whole numbers only!\nPlease try again.\nHow many cells wide?";
+    if(!/^[1-9][0-9]*$/.test(num) || num > 100){
+        document.getElementById('popup-text').innerText = "Please enter a number between 1 and 100.\nHow many cells wide?";
         return;
     }
     document.getElementById("aoe-popup").classList.remove('display-popup');
