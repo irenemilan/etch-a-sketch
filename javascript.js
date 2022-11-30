@@ -25,17 +25,21 @@ function getRGBString(s){
 
 function darkenColors(target){
     let colorArray = getColorArray(target.style.backgroundColor);
-    if(colorArray[0] <= 25.5) colorArray[0] = 0; else colorArray[0] = Number(colorArray[0]) - 25.5;
-    if(colorArray[1] <= 25.5) colorArray[1] = 0; else colorArray[1] = Number(colorArray[1]) - 25.5;
-    if(colorArray[2] <= 25.5) colorArray[2] = 0; else colorArray[2] = Number(colorArray[2]) - 25.5;
+    for(let i = 0; i < colorArray.length; i++){
+        if(colorArray[i] <= 22.5){
+            colorArray[i] =  0;
+        }else{colorArray[i] = Number(colorArray[i]) - 25.5;}
+    }
     return getRGBString(colorArray);
 }
 
 function lightenColors(target){
     let colorArray = getColorArray(target.style.backgroundColor);
-    if(colorArray[0] >= 229.5) colorArray[0] = 255; else colorArray[0] = Number(colorArray[0]) + 25.5;
-    if(colorArray[1] >= 229.5) colorArray[1] = 255; else colorArray[1] = Number(colorArray[1]) + 25.5;
-    if(colorArray[2] >= 229.5) colorArray[2] = 255; else colorArray[2] = Number(colorArray[2]) + 25.5;
+    for(let i = 0; i < colorArray.length; i++){
+        if(colorArray[i] >= 229.5){
+            colorArray[i] =  255;
+        }else{colorArray[i] = Number(colorArray[i]) + 25.5;}
+    }
     return getRGBString(colorArray);
 }
 
@@ -130,8 +134,13 @@ document.getElementById("size").addEventListener('click', function() {
 document.getElementById("form").addEventListener('submit', e => {
     e.preventDefault();
     let num = document.getElementById('resize').value;
+    let check = (num - Math.floor(num)) !== 0;
     if(num > 100){
         document.getElementById('popup-text').innerText = "The limit is 100.\nPlease try again.\nHow many cells wide?";
+        return;
+    }
+    else if(check){
+        document.getElementById('popup-text').innerText = "Whole numbers only!\nPlease try again.\nHow many cells wide?";
         return;
     }
     document.getElementById("aoe-popup").classList.remove('display-popup');
