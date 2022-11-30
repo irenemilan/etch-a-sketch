@@ -17,7 +17,7 @@
     <div id="aoe-popup">
         <div id="wrapper">
             <div class="left">
-                <div class="tools">
+                <form id='tools' class="tools">
                     <div id="tool-header">Tools</div>
                     <div class="dropdown">
                         <label for="paint-style"></label>
@@ -37,7 +37,7 @@
                     <div class="options">
                         <div class="input-grid">
                             <input type="checkbox" id="grid-toggle" name="grid-toggle" value="grid-toggle">
-                            <label for="grid-toggle">Toggle Grid</label>
+                            <label for="grid-toggle">Hide Grid</label>
                         </div>
                         <div class="input-grid">
                             <input type="checkbox" id="toggle-bg-color" name="toggle-bg-color" value="toggle-bg-color">
@@ -49,7 +49,7 @@
                         value='#000000' title="Pick A Color">
                     <label for="pick-a-color"></label>
                     </div>
-                </div>
+                </form>
             </div>
             <div id="canvas" class="grid-on">  
             </div>
@@ -58,7 +58,7 @@
             <div class="popup">
                 <button id="close-popup"></button>
                 <div id="popup-text"></div>
-                <form id="form">
+                <form id="resize-form">
                     <label for="resize"></label>
                     <input type="text" id="resize" name="resize" required>
                     <input type="submit" value="Submit">
