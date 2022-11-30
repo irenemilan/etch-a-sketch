@@ -1,6 +1,8 @@
 const wrapper = document.getElementById("wrapper");
 const canvas = document.getElementById("canvas");
+const tools = document.getElementById("tools");
 const pickColor = document.getElementById("pick-a-color");
+
 let currentColor = '#000000'
 let currentMode = 'normal';
 let currentPaintStyle = 'hover';
@@ -106,6 +108,10 @@ canvas.addEventListener('click', e => {
     }
 })
 
+tools.addEventListener('submit', e =>{
+    e.preventDefault();
+})
+
 document.getElementById("normal").addEventListener('click', function() {
     setMode('normal');
 })
@@ -131,7 +137,7 @@ document.getElementById("size").addEventListener('click', function() {
     document.getElementById('popup-text').innerText = "How many cells wide?\n(Limit 100)"
 })
 
-document.getElementById("form").addEventListener('submit', e => {
+document.getElementById("resize-form").addEventListener('submit', e => {
     e.preventDefault();
     let num = document.getElementById('resize').value;
     if(!/^[1-9][0-9]*$/.test(num) || num > 100){
@@ -184,6 +190,7 @@ function addDivs(num){
     canvas.appendChild(fragment);
 }
 
+tools.reset();
 pickColor.value = currentColor;
 addDivs(16);
 setMode('normal');
