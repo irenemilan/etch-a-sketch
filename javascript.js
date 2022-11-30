@@ -18,29 +18,28 @@ function getColorArray(rgb){
     if(rgb === ''){
         return [255,255,255];
     }
-    return rgb.slice(4,-1).split(', ');
+    return rgb.slice(4,-1).split(', ').map(Number);
 }
 
 function getRGBString(s){
     return `rgb(${s[0]}, ${s[1]}, ${s[2]})`;
 }
 
-function darkenColors(target){
-    let colorArray = getColorArray(target.style.backgroundColor);
-    for(let i = 0; i < colorArray.length; i++){
-        if(colorArray[i] <= 22.5){
-            colorArray[i] =  0;
-        }else{colorArray[i] = Number(colorArray[i]) - 25.5;}
-    }
-    return getRGBString(colorArray);
+function darkenColor(target){
+    return adjustColor(target, -25.5);
 }
 
-function lightenColors(target){
+function lightenColor(target){
+    return adjustColor(target, 25.5);
+}
+
+function adjustColor(target, amount){
     let colorArray = getColorArray(target.style.backgroundColor);
     for(let i = 0; i < colorArray.length; i++){
-        if(colorArray[i] >= 229.5){
-            colorArray[i] =  255;
-        }else{colorArray[i] = Number(colorArray[i]) + 25.5;}
+        let value = colorArray[i] + amount;
+        value = Math.max(value, 0);
+        value = Math.min(value, 255);
+        colorArray[i] =  value;
     }
     return getRGBString(colorArray);
 }
@@ -56,10 +55,10 @@ function paint(target){
                 color = '';
                 break;
             case 'darken':
-                color = darkenColors(target);
+                color = darkenColor(target);
                 break;
             case 'lighten':
-                color = lightenColors(target);
+                color = lightenColor(target);
                 break;
             default:
                 color = currentColor;
