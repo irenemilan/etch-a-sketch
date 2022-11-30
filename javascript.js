@@ -12,6 +12,33 @@ function generateRandomColor(){
     return'#'+Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
 }
 
+function getColorArray(rgb){
+    if(rgb === ''){
+        return [255,255,255];
+    }
+    return rgb.slice(4,-1).split(', ');
+}
+
+function getRGBString(s){
+    return `rgb(${s[0]}, ${s[1]}, ${s[2]})`;
+}
+
+function darkenColors(target){
+    let colorArray = getColorArray(target.style.backgroundColor);
+    if(colorArray[0] <= 25.5) colorArray[0] = 0; else colorArray[0] = Number(colorArray[0]) - 25.5;
+    if(colorArray[1] <= 25.5) colorArray[1] = 0; else colorArray[1] = Number(colorArray[1]) - 25.5;
+    if(colorArray[2] <= 25.5) colorArray[2] = 0; else colorArray[2] = Number(colorArray[2]) - 25.5;
+    return getRGBString(colorArray);
+}
+
+function lightenColors(target){
+    let colorArray = getColorArray(target.style.backgroundColor);
+    if(colorArray[0] >= 229.5) colorArray[0] = 255; else colorArray[0] = Number(colorArray[0]) + 25.5;
+    if(colorArray[1] >= 229.5) colorArray[1] = 255; else colorArray[1] = Number(colorArray[1]) + 25.5;
+    if(colorArray[2] >= 229.5) colorArray[2] = 255; else colorArray[2] = Number(colorArray[2]) + 25.5;
+    return getRGBString(colorArray);
+}
+
 function paint(target){
     if(target.classList.contains("grid-item")){
         let color = '';
@@ -21,6 +48,12 @@ function paint(target){
                 break;
             case 'eraser':
                 color = '';
+                break;
+            case 'darken':
+                color = darkenColors(target);
+                break;
+            case 'lighten':
+                color = lightenColors(target);
                 break;
             default:
                 color = currentColor;
@@ -79,6 +112,14 @@ document.getElementById("rainbow").addEventListener('click', function() {
 
 document.getElementById("eraser").addEventListener('click', function() {
     setMode('eraser');
+})
+
+document.getElementById("darken").addEventListener('click', function() {
+    setMode('darken');
+})
+
+document.getElementById("lighten").addEventListener('click', function() {
+    setMode('lighten');
 })
 
 document.getElementById("size").addEventListener('click', function() {

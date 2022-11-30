@@ -43,6 +43,14 @@ html {
     cursor: url(images/eraser.png) 0 31, auto;
 }
 
+.darken-active #canvas{
+    cursor: url(images/darken-icon.png) 14 14, auto;
+}
+
+.lighten-active #canvas{
+    cursor: url(images/lighten-icon.png) 14 14, auto;
+}
+
 .grid-on .grid-item{
 border: .5px solid rgba(0, 0, 0, 0.8);
 }
@@ -64,6 +72,7 @@ border: .5px solid rgba(0, 0, 0, 0.8);
 .tools {
     display: flex;
     flex-direction: column;
+    align-items: center;
     border: 1px solid;
     border-radius: 10px;
     padding: 20px;
@@ -99,7 +108,7 @@ border: .5px solid rgba(0, 0, 0, 0.8);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    font-family: 'DotGothic16';
+    font-family: 'DotGothic16', sans-serif;
 }
 
 .input-grid input{
@@ -123,6 +132,14 @@ img {
     background-image: url(images/eraser-icon.png);
 }
 
+#darken {
+    background-image: url(images/darken.png);
+}
+
+#lighten {
+    background-image: url(images/lighten.png);
+}
+
 #size {
     background-image: url(images/resize.png);
 }
@@ -131,7 +148,7 @@ img {
     background-image: url(images/clear-all.png);
 }
 
-.normal-active #normal, .rainbow-active #rainbow, .eraser-active #eraser {
+.normal-active #normal, .rainbow-active #rainbow, .eraser-active #eraser, .darken-active #darken, .lighten-active #lighten{
     background-color:rgba(132, 94, 194,0.7);
 }
 
